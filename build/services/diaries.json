@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "date": "25/jun/2020",
+        "weather": "rainy",
+        "visibility": "ok",
+        "comment": "today is a beautyful rainy day"
+    },
+    {
+        "id": 2,
+        "date": "30/jun/2020",
+        "weather": "sunny",
+        "visibility": "great",
+        "comment": "today is a beautyful sunny day"
+    },
+    {
+        "id": 3,
+        "date": "4/jul/2020",
+        "weather": "cloudy",
+        "visibility": "good",
+        "comment": "there are many clouds"
+    }
+]
