@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const types_1 = require("./types");
+const enums_1 = require("./enums");
 const parseComment = (commentFromRequest) => {
     if (!isString(commentFromRequest)) {
         throw new Error('Incorrect or missing comment');
@@ -25,10 +25,10 @@ const parseVisibility = (visibilityFromRequest) => {
     }
     return visibilityFromRequest;
 };
-const isString = (value) => typeof value !== 'string';
-const isDate = (date) => Boolean(Date.parse(date));
-const isWeather = (value) => Object.values(types_1.Weather).includes(value);
-const isVisibility = (value) => Object.values(types_1.Visibility).includes(value);
+const isString = (value) => { return typeof value === 'string'; };
+const isDate = (date) => { return Boolean(Date.parse(date)); };
+const isWeather = (value) => { return Object.values(enums_1.Weather).includes(value); };
+const isVisibility = (value) => { return Object.values(enums_1.Visibility).includes(value); };
 const toNewDiaryEntry = (object) => {
     const newDiaryEntry = {
         date: parseDate(object.date),
@@ -36,6 +36,7 @@ const toNewDiaryEntry = (object) => {
         visibility: parseVisibility(object.visibility),
         comment: parseComment(object.comment),
     };
+    console.log(newDiaryEntry);
     return newDiaryEntry;
 };
 exports.default = toNewDiaryEntry;

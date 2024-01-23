@@ -45,8 +45,15 @@ router.post('/', (req, res) => {
         const newDiary = diaryServices.addDiary(newDiaryEntry);
         res.json(newDiary);
     }
-    catch (e) {
-        res.status(400).send(e);
+    catch (error) {
+        res.status(400);
+        res.send(error.message);
     }
+});
+router.get('/comment/:id', (req, res) => {
+    const diary = diaryServices.findByIdComment(+req.params.id);
+    return (diary != null)
+        ? res.send(diary)
+        : res.send('404 | No encontramos el comentario');
 });
 exports.default = router;

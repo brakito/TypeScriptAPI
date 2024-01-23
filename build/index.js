@@ -5,8 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const diaries_1 = __importDefault(require("./routes/diaries"));
-const types_1 = require("./types");
-console.log(Object.values(types_1.Weather));
 const app = (0, express_1.default)();
 app.use(express_1.default.json()); //midleware que transforma la req.body a json
 const PORT = 3000;

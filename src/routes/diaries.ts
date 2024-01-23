@@ -26,4 +26,11 @@ router.post('/', (req, res) => {
     }
 });
 
+router.get('/comment/:id', (req, res) => {
+    const diary = diaryServices.findByIdComment(+req.params.id);
+    return (diary != null)
+    ? res.send(diary)
+    : res.send('404 | No encontramos el comentario')
+})
+
 export default router;

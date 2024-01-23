@@ -19,6 +19,15 @@ export const findById = (id: number): NonSensitiveInfoDiaryEntry | undefined => 
     return undefined;
 }
 
+export const findByIdComment = (id: number): string | undefined => {
+    const entry = diaries.find(d => d.id === id);
+    if (entry != null) {
+        const {comment} = entry;
+        return comment;
+    }
+    return undefined;
+}
+
 export const addDiary = (newDiaryEntry: NewDiary): DiaryEntry => {
     const newDiary = {
         id: Math.max(...diaries.map(d => d.id)) + 1,
