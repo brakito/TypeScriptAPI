@@ -2,21 +2,6 @@
 
 Proyecto ficticio desarrollado para aprender de Node.js con express y TypeScript.
 
-## Formato de Diario
-
-El formato para agregar nuevos diarios es el siguiente:
-
-```json
-{
-  "date": "22/jan/2024",
-  "weather": "sunny",
-  "visibility": "great",
-  "comment": "Today it's a beautiful day, the moon shines, and the sky has no clouds."
-}
-```
-
-Asegúrate de incluir la fecha, condiciones meteorológicas, visibilidad y un comentario descriptivo al agregar un nuevo diario.
-
 ## Endpoints
 
 ### Obtener todos los diarios
@@ -43,11 +28,20 @@ POST /
 ```
 Este endpoint permite la creación de un nuevo diario. Se espera un cuerpo de solicitud en formato JSON con la información del nuevo diario.
 
-### Obtener diario por ID de comentario
-```http
-GET /comment/:id
+El formato para agregar nuevos diarios es el siguiente:
+
+```json
+{
+  "date": "22/jan/2024",
+  "weather": "sunny",
+  "visibility": "great",
+  "comment": "Today it's a beautiful day, the moon shines, and the sky has no clouds."
+}
 ```
-Este endpoint devuelve un diario basado en el ID del comentario proporcionado en la URL.
+
+algunos parametros estan tipados usando un enum como:
+- weather que solo puede tener los valores: sunny,rainy,cloudy,windy,stormy.
+- visibility que solo puede tener los valores: great, good, ok, poor.
 
 ## Ejemplo de Uso
 
@@ -60,10 +54,10 @@ Respuesta exitosa:
 [
     {
         "id": 1,
-        "date": "2024-01-22",
-        "weather": "Sunny",
-        "visibility": "Great",
-        "comment": "Great weather for ballooning!"
+        "date": "22/jan/2024",
+        "weather": "sunny",
+        "visibility": "great",
+        "comment": "great weather for ballooning!"
     },
     // Otros diarios...
 ]
@@ -77,9 +71,9 @@ Respuesta exitosa:
 ```json
 {
     "id": 2,
-    "date": "2024-01-23",
-    "weather": "Partly Cloudy",
-    "visibility": "Good",
+    "date": "23/jan/2024",
+    "weather": "cloudy",
+    "visibility": "good",
     "comment": "Enjoyed a peaceful flight today."
 }
 ```
@@ -91,9 +85,9 @@ POST /
 Cuerpo de solicitud:
 ```json
 {
-    "date": "2024-01-24",
-    "weather": "Rainy",
-    "visibility": "Limited",
+    "date": "24/jan/2024",
+    "weather": "rainy",
+    "visibility": "ok",
     "comment": "Postponed the flight due to rain."
 }
 ```
@@ -101,9 +95,9 @@ Respuesta exitosa:
 ```json
 {
     "id": 3,
-    "date": "2024-01-24",
-    "weather": "Rainy",
-    "visibility": "Limited",
+    "date": "24/jan/2024",
+    "weather": "rainy",
+    "visibility": "ok",
     "comment": "Postponed the flight due to rain."
 }
 ```
@@ -116,14 +110,9 @@ Respuesta exitosa:
 ```json
 {
     "id": 4,
-    "date": "2024-01-25",
-    "weather": "Windy",
-    "visibility": "Moderate",
+    "date": "25/jan/2024",
+    "weather": "windy",
+    "visibility": "poor",
     "comment": "Challenging flight with strong winds."
 }
 ```
-
-## Contribuciones
-¡Las contribuciones son bienvenidas! Si encuentras algún problema o tienes ideas para mejorar la API, no dudes en abrir un problema o enviar una solicitud de extracción.
-
-Disfruta de la API de Diarios para Pilotos de Globo Aerostático! 🎈
