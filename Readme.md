@@ -2,6 +2,10 @@
 
 Proyecto ficticio desarrollado para aprender de Node.js con express y TypeScript.
 
+```bash
+npm run dev
+```
+
 ## Endpoints
 
 ### Obtener todos los diarios
